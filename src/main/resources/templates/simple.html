@@ -9,5 +9,24 @@
   <p 
   	th:text="${hi}"
   />
+  <ul>
+    <li
+  	th:each="v: ${veges}"
+  	th:text="${v.name}"
+  	th:attr="style='background:' + ${v.color}"
+  	>Name of the Vegetable</li>
+  
+  </ul>
+  
+  <form  method="post"
+  	th:action="@{/addvegetable}"
+	th:object="${veg}"
+  >
+	<input type="text" th:field="*{name}"/>
+	<input type="text" th:field="*{color}"/>
+	<input type="text" th:field="*{price}"/>
+	<input type="submit" name="ADD"/>
+</form>
+  
 </body>
 </html>
